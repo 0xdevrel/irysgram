@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irysgram</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <span class="app-name">Irysgram</span>
+            </div>
+            <div class="header-actions">
+                <button class="profile-btn" onclick="toggleProfile()">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Profile Section -->
+            <section class="profile-section">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="/manish.png" alt="0xdevrel" class="profile-pic">
+                    </div>
+                    <div class="profile-info">
+                        <h2><a href="https://x.com/0xdevrel" target="_blank" rel="noopener noreferrer" class="profile-link">0xdevrel</a></h2>
+                        <div class="profile-address" id="wallet-address">Loading...</div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" id="photo-count">0</span>
+                                <span class="stat-label">photos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="wallet-balance">0</span>
+                                <span class="stat-label">IRYS balance</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="sol-balance">0</span>
+                                <span class="stat-label">SOL balance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="action-btn btn-primary" onclick="loadWalletInfo()">
+                        <i class="fas fa-sync"></i> Refresh
+                    </button>
+                    <button class="action-btn btn-secondary" onclick="copyAddress()">
+                        <i class="fas fa-copy"></i> Copy Address
+                    </button>
+                    <button class="action-btn btn-secondary" onclick="fundWallet()">
+                        <i class="fas fa-plus"></i> Fund Wallet
+                    </button>
+                    <button class="action-btn btn-ghost" onclick="requestFaucet()">
+                        <i class="fas fa-faucet"></i> Get SOL
+                    </button>
+                </div>
+            </section>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="upload-text">Share a photo</div>
+                    <div class="upload-subtext">Drag & drop or click to browse</div>
+                    <input type="file" id="fileInput" class="file-input" accept="image/*">
+                </div>
+                
+                <div class="upload-progress" id="uploadProgress">
+                    <div class="progress-text">Uploading to IRYS...</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline/Feed -->
+            <section class="timeline" id="timeline">
+                <!-- Photos will be dynamically inserted here -->
+            </section>
+        </div>
+    </main>
+
+    <!-- Photo Modal -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Photo Details</h3>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Photo" class="modal-image">
+                <div class="modal-info">
+                    <p><strong>Upload ID:</strong> <span id="modalId"></span></p>
+                    <p><strong>Upload Date:</strong> <span id="modalDate"></span></p>
+                    <p><strong>File Size:</strong> <span id="modalSize"></span></p>
+                </div>
+                <div class="modal-actions">
+                    <button class="action-btn btn-ghost" onclick="copyId()">
+                        <i class="fas fa-copy"></i> Copy ID
+                    </button>
+                    <button class="action-btn btn-primary" onclick="viewOnGateway()">
+                        <i class="fas fa-external-link-alt"></i> View on Gateway
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Built with ❤️ by <a href="https://x.com/0xdevrel" target="_blank" rel="noopener noreferrer" class="footer-link">@0xdevrel</a> using IRYS and Solana</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

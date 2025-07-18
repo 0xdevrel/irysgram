@@ -2,7 +2,6 @@
 
 A decentralized Instagram-like photo sharing application built with IRYS datachain and Solana blockchain technology.
 
-![Irysgram Banner](public/logo.svg)
 
 ## 🌟 Overview
 
